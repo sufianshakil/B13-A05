@@ -18,16 +18,37 @@
 
 </head>
 <body>
-    <section class="">
-        <div>
-            <img src="./assets/github-logo.png" alt="">
-            <h2>GitHub Issues Tracker</h2>
-            <p>Sign in to manage your issues</p>
-        </div>
+    <section class="flex items-center justify-center h-screen bg-gray-100">
+        <div class="bg-white shadow-xl p-10 rounded-xl">
 
-        <div>
-            
+            <div class="text-center items-center">
+                <div class="flex justify-center mb-5">
+                    <img src="./assets/github-logo.png" alt="">
+                </div>
+                
+
+                <h1 class="text-3xl font-bold">GitHub Issues Tracker</h1>
+
+                <p class="text-gray-500 mt-2">Sign in to manage your issues</p>
+
+            </div>
+
+            <div class="mt-6">
+                <label class="">Username</label>
+                <input id="username" type="text" placeholder="Enter Username" class="input input-bordered w-full mb-3">
+
+                <p class="text-sm text-purple-600 mb-3"> Default: admin</p>
+                <label class="">Password</label>
+                <input id="password" type="password" placeholder="Enter Password" class="input input-bordered w-full mb-3">
+
+                <p class="text-sm text-purple-600">Default: admin123</p>
+
+                <button class="btn btn-primary w-full mt-4">Sign In</button>
+
+            </div>
+
         </div>
     </section>
+    
 </body>
 </html>
