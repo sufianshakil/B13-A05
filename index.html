@@ -20,7 +20,8 @@
 
     <!-- NAVBAR -->
 
-<div class="navbar bg-white px-10 border-b border-gray-200 flex justify-between items-center">
+<section class=" bg-white px-10 border-b border-gray-200 shadow-xl">
+    <div class="navbar flex justify-between items-center w-11/12 mx-auto">
 
 <div class="flex items-center gap-3">
 <div class="w-10">
@@ -41,5 +42,44 @@
 </div>
 
 </div>
+</section>
+
+<!-- TABS -->
+
+<div class="flex gap-3 p-5 w-10/12 mx-auto bg-white px-10 border-b border-gray-200 mt-10 shadow-xl rounded-lg">
+
+<button onclick="loadIssues()" class="btn btn-primary">All</button>
+
+<button onclick="" class="btn">Open</button>
+
+<button onclick="" class="btn">Closed</button>
+
+</div>
+
+<!-- ISSUE COUNT -->
+ <div class="w-10/12 mx-auto flex justify-between items-center bg-white px-10 border-b border-gray-200 mt-5 py-7 rounded-lg">
+    <div class="flex items-center">
+        <div>
+            <img src="./assets/Aperture1.png" alt="">
+        </div>
+        <div class="ml-5">
+            <h2 id="issueCount" class="text-2xl font-semibold"></h2>
+            <p>Track and manage your project issues</p>
+        </div>
+    </div>
+    <div>
+        <img src="./assets/Frame.png" alt="">
+    </div>
+</div>
+
+
+<!-- CARDS -->
+
+<div id="issueContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-5 w-10/12 mx-auto">
+
+    
+</div>
+
+<script src="./script.js"></script>
 </body>
 </html>
