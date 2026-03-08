@@ -16,12 +16,12 @@
 
     <link rel="stylesheet" href="./style.css">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 font-family">
 
     <!-- NAVBAR -->
 
 <section class=" bg-white px-10 border-b border-gray-200 shadow-xl py-3">
-    <div class="navbar flex justify-between items-center w-11/12 mx-auto">
+    <div class="navbar flex flex-col md:flex-row  justify-between items-center w-11/12 mx-auto">
 
 <div class="flex items-center gap-3">
 <div class="w-10">
@@ -33,7 +33,7 @@
 
 </div>
 
-<div class="flex gap-2">
+<div class="flex gap-2 mt-3 md:mt-0">
 
 <input id="searchInput" type="text" placeholder="Search issues..." class="input input-bordered">
 
@@ -48,16 +48,16 @@
 
 <div class="flex gap-3 p-5 w-10/12 mx-auto bg-white px-10 border-b border-gray-200 mt-10 shadow-xl rounded-lg">
 
-<button onclick="loadIssues()" class="btn btn-primary">All</button>
+<button onclick="setActive(this); loadIssues()" class="btn btn-primary tab-btn">All</button>
 
-<button onclick="filterIssues('open')" class="btn">Open</button>
+<button onclick="setActive(this); filterIssues('open')" class="btn tab-btn">Open</button>
 
-<button onclick="filterIssues('closed')" class="btn">Closed</button>
+<button onclick="setActive(this); filterIssues('closed')" class="btn tab-btn">Closed</button>
 
 </div>
 
 <!-- ISSUE COUNT -->
- <div class="w-10/12 mx-auto flex justify-between items-center bg-white px-10 border-b border-gray-200 mt-5 py-7 rounded-lg">
+ <div class="w-10/12 mx-auto flex flex-col md:flex-row justify-between items-center bg-white px-10 border-b border-gray-200 mt-5 py-7 rounded-lg">
     <div class="flex items-center">
         <div>
             <img src="./assets/Aperture1.png" alt="">
@@ -67,12 +67,15 @@
             <p>Track and manage your project issues</p>
         </div>
     </div>
-    <div>
+    <div class="mt-7">
         <img src="./assets/Frame.png" alt="">
     </div>
 </div>
 
-
+    <!-- Spinner -->
+<section id="spinner" class="flex items-center justify-center hidden">
+    <span class="loading loading-bars loading-xl"></span>
+</section>
 <!-- CARDS -->
 
 <div id="issueContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-5 w-10/12 mx-auto">

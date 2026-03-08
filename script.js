@@ -16,6 +16,8 @@ function login(){
 
 async function loadIssues(){
 
+ manageSpinner(true)
+ 
 const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
 
 const data = await res.json()
@@ -28,6 +30,7 @@ displayIssues(data.data)
 // DISPLAY ISSUES
 
 function displayIssues(issues){
+    
 
 const container = document.getElementById("issueContainer")
 
@@ -55,13 +58,13 @@ card.innerHTML = `
 
 <h2 class="card-title">${issue.title}</h2>
 
-<p>${issue.description}</p>
+<p class = "text-gray-500">${issue.description}</p>
 
 <div class="flex gap-2 mt-2">
 
-<span class="badge badge-error">BUG</span>
+<span class="badge bg-red-200 border-red-400 uppercase">${issue.labels[0]}</span>
 
-<span class="badge badge-warning">HELP</span>
+<span class="badge bg-orange-200 border-orange-400 uppercase">${issue.labels[1]}</span>
 
 </div>
 
@@ -77,9 +80,21 @@ card.onclick = () => openModal(issue)
 container.appendChild(card)
 
 })
-
+manageSpinner(false);
 };
-loadIssues()
+
+// Spinner
+
+  const manageSpinner = (status) =>{
+    if(status == true){
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("issueContainer").classList.add("hidden");
+    }else{
+        document.getElementById("issueContainer").classList.remove("hidden");
+        document.getElementById("spinner").classList.add("hidden");
+    }
+  };
+
 
 // MODAL
 
@@ -136,3 +151,20 @@ fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`)
 .then(data => displayIssues(data.data))
 
 };
+
+// ACTIVE BUTTON
+function setActive(button){
+
+const buttons = document.querySelectorAll(".tab-btn")
+
+buttons.forEach(btn => {
+btn.classList.remove("btn-primary")
+})
+
+button.classList.add("btn-primary")
+
+};
+
+  
+
+  loadIssues()
