@@ -108,3 +108,17 @@ document.getElementById("modalContent").innerHTML = `
 modal.showModal()
 
 }
+
+// FILTER
+
+async function filterIssues(status){
+
+const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+
+const data = await res.json()
+
+const filtered = data.data.filter(issue => issue.status === status)
+
+displayIssues(filtered)
+
+}
