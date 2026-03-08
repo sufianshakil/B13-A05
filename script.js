@@ -121,4 +121,18 @@ const filtered = data.data.filter(issue => issue.status === status)
 
 displayIssues(filtered)
 
-}
+};
+
+// SEARCH
+
+function searchIssue(){
+
+const text = document.getElementById("searchInput").value
+
+fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`)
+
+.then(res => res.json())
+
+.then(data => displayIssues(data.data))
+
+};
