@@ -72,9 +72,39 @@ card.innerHTML = `
 </div>
 
 `
+card.onclick = () => openModal(issue)
+
 container.appendChild(card)
 
 })
 
 };
 loadIssues()
+
+// MODAL
+
+function openModal(issue){
+
+const modal = document.getElementById("issueModal")
+
+document.getElementById("modalContent").innerHTML = `
+
+<h2 class="text-xl font-bold">${issue.title}</h2>
+
+<p class="mt-2">${issue.description}</p>
+
+<p class="mt-2">Status: ${issue.status}</p>
+
+<p>Author: ${issue.author}</p>
+
+<p>Priority: ${issue.priority}</p>
+
+<p>Category: ${issue.category}</p>
+
+<p>Date: ${issue.createdAt}</p>
+
+`
+
+modal.showModal()
+
+}
